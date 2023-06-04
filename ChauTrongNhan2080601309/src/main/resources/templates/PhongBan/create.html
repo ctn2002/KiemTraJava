@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_Layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Thêm phòng ban</title>
+</head>
+<body>
+<div layout:fragment="content" class="container body-content">
+    <form th:action="@{/phongban/create}" th:object="${phongBan}" method="post" class="form">
+        <div class="form-group">
+            <label for="maPhong">Mã phòng</label>
+            <input class="form-control" type="text" th:field="*{maPhong}" id="maPhong" placeholder="Mã phòng ban">
+            <div class="alert alert-warning" th:if="${#fields.hasErrors('maPhong')}" th:errors="*{maPhong}"></div>
+        </div>
+        <div class="form-group">
+            <label for="tenPhong">Tên phòng</label>
+            <input class="form-control" type="text" th:field="*{tenPhong}" id="tenPhong" placeholder="Tên phòng ban">
+            <div class="alert alert-warning" th:if="${#fields.hasErrors('tenPhong')}" th:errors="*{tenPhong}"></div>
+        </div>
+        <input type="submit" class="btn btn-success" value="Thêm phòng ban">
+    </form>
+</div>
+</body>
+</html>

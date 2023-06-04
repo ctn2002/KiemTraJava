@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_Layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Thêm nhân viên</title>
+</head>
+<body>
+<div layout:fragment="content" class="container body-content">
+    <form th:action="@{/nhanvien/create}" th:object="${nhanvien}" method="post" class="form">
+        <div class="form-group">
+            <label for="id">Mã nhân viên</label>
+            <input class="form-control" type="text" th:field="*{id}" id="id" placeholder="Mã nhân viên">
+            <div class="alert alert-warning" th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></div>
+        </div>
+        <div class="form-group">
+            <label for="ten">Tên nhân viên</label>
+            <input class="form-control" type="text" th:field="*{ten}" id="ten" placeholder="Tên nhân viên">
+            <div class="alert alert-warning" th:if="${#fields.hasErrors('ten')}" th:errors="*{ten}"></div>
+        </div>
+        <div class="form-group">
+            <label for="phai">Giới tính</label>
+            <input class="form-control" type="text" th:field="*{phai}" id="phai" placeholder="Giới tính">
+            <div class="alert alert-warning" th:if="${#fields.hasErrors('phai')}" th:errors="*{phai}"></div>
+        </div>
+        <div class="form-group">
+            <label for="noiSinh">Nơi sinh</label>
+            <input class="form-control" type="text" th:field="*{noiSinh}" id="noiSinh" placeholder="Nơi sinh">
+            <div class="alert alert-warning" th:if="${#fields.hasErrors('noiSinh')}" th:errors="*{noiSinh}"></div>
+        </div>
+        <div class="form-group">
+            <label for="maPhong">Mã phòng</label>
+            <input class="form-control" type="text" th:field="*{maPhong}" id="maPhong" placeholder="Mã phòng ban">
+            <div class="alert alert-warning" th:if="${#fields.hasErrors('maPhong')}" th:errors="*{maPhong}"></div>
+        </div>
+        <div class="form-group">
+            <label for="luong">Lương</label>
+            <input class="form-control" type="text" th:field="*{luong}" id="luong" placeholder="Lương">
+            <div class="alert alert-warning" th:if="${#fields.hasErrors('luong')}" th:errors="*{luong}"></div>
+        </div>
+        <input type="submit" class="btn btn-success" value="Thêm nhân viên">
+    </form>
+</div>
+</body>
+</html>

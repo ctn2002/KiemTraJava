@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="_Layout"
+      xmlns:custom="http://www.w3.org/1999/xhtml"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý phòng ban</title>
+    <link rel="stylesheet" href="" >
+</head>
+<body>
+<div layout:fragment="content" class="container body-content">
+    <a th:href="@{/phongban/create}" class="btn btn-success">Thêm phòng ban mới</a>
+    <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <th scope="col">Mã phòng ban</th>
+            <th scope="col">Tên phòng ban</th>
+            <th scope="col">Thao tác</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="phongBan : ${listPhongBan}">
+            <td th:text="${phongBan.maPhong}"></td>
+            <td th:text="${phongBan.tenPhong}"></td>
+            <td>
+                <a th:href="@{/phongban/edit/{id}(id=${phongBan.maPhong})}" custom:linkMethod="post" class="btn btn-secondary">Edit</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
